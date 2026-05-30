@@ -8,11 +8,12 @@ export const siteConfig = {
     serviceAreas: ["Lakeland", "Winter Haven", "Haines City", "Davenport"],
   },
   hero: {
-    type: "image" as "video" | "image",
-    src: "/assets/hero-bg.jpg",
+    type: "video" as "video" | "image",
+    src: "/assets/hero-video.mp4",
     headline: "Your Lawn.",
     headlineAccent: "Perfected.",
-    subheading: "Premium lawn care and landscaping for homeowners who refuse to settle for average.",
+    subheading:
+      "Premium lawn care and landscaping for homeowners who refuse to settle for average.",
   },
   theme: {
     accentColor: "#C9A84C",
@@ -32,6 +33,6 @@ export const siteConfig = {
     instagram: "https://instagram.com",
     facebook: "https://facebook.com",
   },
-}
+};
 
-export type SiteConfig = typeof siteConfig
+export type SiteConfig = typeof siteConfig;

@@ -1,19 +1,20 @@
 import Nav from "./components/Nav/Nav"
+import Hero from "./components/Hero/Hero"
 import { siteConfig } from "./config/site.config"
 
 function App() {
   return (
     <div
-      style={{
+          style={{
         backgroundImage: `url(${siteConfig.theme.grassTexture})`,
-        backgroundSize: "cover",
+        // backgroundSize: "cover",
         backgroundAttachment: "fixed",
-        backgroundPosition: "center",
+        // backgroundPosition: "center",
         minHeight: "100vh",
       }}
     >
       <Nav />
-      <div style={{ height: "200vh" }} />
+      <Hero />
     </div>
   )
 }
