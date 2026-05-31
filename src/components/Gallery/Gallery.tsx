@@ -257,8 +257,8 @@ export default function Gallery() {
               style={{ background: siteConfig.theme.accentColor }}
             />
             <span
-              className="text-xs tracking-widest uppercase"
-              style={{ color: siteConfig.theme.accentColor }}
+              className="text-sm text-white tracking-widest uppercase"
+              // style={{ color: siteConfig.theme.accentColor }}
             >
               Proof of Work
             </span>

@@ -6,6 +6,7 @@ import TrustBar from "./components/TrustBar/TrustBar"
 import Process from "./components/Process/Process"
 import Gallery from "./components/Gallery/Gallery"
 import Reviews from "./components/Reviews/Reviews"
+import Contact from "./components/Contact/Contact"
 import { siteConfig } from "./config/site.config"
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Process/>
       <Gallery/>
       <Reviews/>
+      <Contact/>
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import type { Variants } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { siteConfig } from "../../config/site.config"
 
 const reviews = [
@@ -97,20 +96,20 @@ function ReviewCard({ review }: { review: typeof reviews[0] }) {
 
 export default function Reviews() {
   const [isPaused, setIsPaused] = useState(false)
-  const [manualIndex, setManualIndex] = useState<number | null>(null)
+  // const [manualIndex, setManualIndex] = useState<number | null>(null)
   const trackRef = useRef<HTMLDivElement>(null)
 
-  const handlePrev = () => {
-    setManualIndex((prev) =>
-      prev === null ? reviews.length - 1 : (prev - 1 + reviews.length) % reviews.length
-    )
-  }
+  // const handlePrev = () => {
+  //   setManualIndex((prev) =>
+  //     prev === null ? reviews.length - 1 : (prev - 1 + reviews.length) % reviews.length
+  //   )
+  // }
 
-  const handleNext = () => {
-    setManualIndex((prev) =>
-      prev === null ? 1 : (prev + 1) % reviews.length
-    )
-  }
+  // const handleNext = () => {
+  //   setManualIndex((prev) =>
+  //     prev === null ? 1 : (prev + 1) % reviews.length
+  //   )
+  // }
 
   return (
     <section
@@ -149,8 +148,8 @@ export default function Reviews() {
               style={{ background: siteConfig.theme.accentColor }}
             />
             <span
-              className="text-xs tracking-widest uppercase"
-              style={{ color: siteConfig.theme.accentColor }}
+              className="text-sm text-white tracking-widest uppercase"
+              // style={{ color: siteConfig.theme.accentColor }}
             >
               What Clients Say
             </span>
@@ -229,7 +228,7 @@ export default function Reviews() {
       </div>
 
       {/* Dot indicators */}
-      <div className="flex justify-center gap-2 mt-8">
+      {/* <div className="flex justify-center gap-2 mt-8">
         {reviews.map((review, dotIndex) => (
           <button
             key={review.id}
@@ -246,7 +245,7 @@ export default function Reviews() {
             }}
           />
         ))}
-      </div>
+      </div> */}
 
     </section>
   )
