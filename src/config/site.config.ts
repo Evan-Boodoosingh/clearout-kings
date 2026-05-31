@@ -16,10 +16,11 @@ export const siteConfig = {
       "Premium lawn care and landscaping for homeowners who refuse to settle for average.",
   },
   theme: {
-    accentColor: "#C9A84C",
-    grassTexture: "/assets/grass-texture.jpg",
-    concreteTexture: "/assets/concrete-texture.jpg",
-  },
+  accentColor: "#C9A84C",
+  grassTexture: "/assets/grass-texture.jpg",
+  concreteTexture: "/assets/concrete-texture.jpg",
+  stoneTexture: "/assets/stone-texture.jpg",
+},
   sections: {
     services: true,
     about: true,
