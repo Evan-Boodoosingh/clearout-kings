@@ -9,42 +9,42 @@ const services = [
     icon: Scissors,
     name: "Lawn Mowing & Edging",
     description:
-      "Weekly and bi-weekly cuts with clean, precise edging on every visit.",
+      "A perfectly cut lawn starts with the right crew. We mow, edge, trim, and blow on every visit, leaving your property looking sharp and well-maintained every single time.",
   },
   {
     id: 2,
     icon: Trees,
     name: "Landscaping & Design",
     description:
-      "Full landscape design and installation tailored to your property.",
+      "From concept to completion, we design and install landscapes that enhance your property's beauty and value. Every plan is custom built around your space, your style, and your budget.",
   },
   {
     id: 3,
     icon: Droplets,
     name: "Irrigation & Sprinklers",
     description:
-      "System installation, repair, and seasonal maintenance to keep your lawn thriving.",
+      "Florida lawns need consistent water to thrive. We install, repair, and maintain irrigation systems that deliver the right amount of water to every inch of your lawn automatically.",
   },
   {
     id: 4,
     icon: Sprout,
     name: "Fertilization & Weed Control",
     description:
-      "Customized treatment plans to eliminate weeds and feed your lawn year-round.",
+      "Weeds don't stand a chance. Our seasonal treatment plans feed your lawn the nutrients it needs while eliminating the weeds that compete with it. keeping your turf thick, green, and healthy.",
   },
   {
     id: 5,
     icon: Shrub,
     name: "Hedge & Shrub Trimming",
     description:
-      "Precise shaping and pruning to keep your hedges and shrubs looking sharp.",
+      "Overgrown hedges and shrubs drag down the look of any property. Our team shapes and prunes with precision, giving your landscaping clean, defined lines that hold their shape longer.",
   },
   {
     id: 6,
     icon: Layers,
     name: "Sod Installation",
     description:
-      "Fresh sod supply and professional laying for an instant lawn transformation.",
+      "Whether you're starting fresh or repairing bare patches, we supply and professionally install premium sod that takes root fast. giving you a lush, green lawn you can enjoy immediately.",
   },
 ];
 
@@ -135,7 +135,7 @@ export default function Services() {
               }}
             >
               {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/70 group-hover:bg-black/55 transition-all duration-300" />
+              <div className="absolute inset-0 bg-black/65 group-hover:bg-black/55 transition-all duration-300" />
 
               {/* Card content */}
               <div className="relative z-10 p-10 flex flex-col items-start gap-4">
@@ -158,12 +158,12 @@ export default function Services() {
                 </p>
 
                 {/* Learn more — appears on hover */}
-                <span
+                {/* <span
                   className="text-xs tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2"
                   style={{ color: siteConfig.theme.accentColor }}
                 >
                   Learn More →
-                </span>
+                </span> */}
               </div>
             </motion.div>
           );
