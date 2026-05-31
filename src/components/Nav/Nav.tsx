@@ -103,11 +103,11 @@ export default function Nav() {
         <div
           className={`
             flex items-center justify-between
-            px-5 py-3.5 rounded-full
+            px-5 py-2 rounded-full
             border border-white/10
             backdrop-blur-md
             transition-all duration-300
-            ${scrolled ? "bg-black/95" : "bg-black/70"}
+            ${scrolled ? "bg-black/60" : "bg-black/60"}
           `}
         >
           {/* Logo */}
@@ -150,7 +150,7 @@ export default function Nav() {
       {menuOpen && (
         <motion.div
           key="mobile-overlay"
-          className="fixed inset-0 z-40 flex flex-col justify-between px-8 py-20 md:hidden"
+          className="fixed inset-0 z-40 flex flex-col justify-between px-8 py-9 md:hidden"
           style={{ background: "rgba(8, 8, 8, 0.98)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

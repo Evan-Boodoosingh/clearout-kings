@@ -2,6 +2,7 @@ import Nav from "./components/Nav/Nav"
 import Hero from "./components/Hero/Hero"
 import Services from "./components/Services/Services"
 import About from "./components/About/About"
+import TrustBar from "./components/TrustBar/TrustBar"
 import { siteConfig } from "./config/site.config"
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Hero />
       <Services />
       <About/>
+      <TrustBar/>
     </div>
   )
 }
