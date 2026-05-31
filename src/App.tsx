@@ -3,6 +3,9 @@ import Hero from "./components/Hero/Hero"
 import Services from "./components/Services/Services"
 import About from "./components/About/About"
 import TrustBar from "./components/TrustBar/TrustBar"
+import Process from "./components/Process/Process"
+import Gallery from "./components/Gallery/Gallery"
+import Reviews from "./components/Reviews/Reviews"
 import { siteConfig } from "./config/site.config"
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
       <Services />
       <About/>
       <TrustBar/>
+      <Process/>
+      <Gallery/>
+      <Reviews/>
     </div>
   )
 }
