@@ -84,10 +84,10 @@ export default function TrustBar() {
             style={{ background: siteConfig.theme.accentColor }}
           />
           <span
-            className="text-xs tracking-widest uppercase"
-            style={{ color: siteConfig.theme.accentColor }}
+            className=" text-md tracking-widest uppercase  text-white"
+            // style={{ color: siteConfig.theme.accentColor }}
           >
-            Our Promise
+            The Promise
           </span>
           <div
             className="h-px w-12"
