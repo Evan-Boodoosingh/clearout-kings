@@ -1,107 +1,193 @@
-📋 Project Overview
-The Prestige Lawn landing page is engineered to serve as a high-performance marketing and lead-generation asset. It transitions away from traditional, generic lawn care designs by adopting a premium, cinematic visual language—utilizing rich near-black textures mixed with sharp emerald accents to convey elite craftsmanship and reliability.
+# Prestige Lawn & Landscape
 
-Core Features
-Staggered Micro-Interactions: Fluid entry animations on text, badges, and structural layouts that drive visitor engagement from the millisecond the page loads.
+A premium, high-conversion website template built for lawn care and landscaping businesses. Designed to showcase services, build trust, and convert visitors into leads through a clean, modern interface with rich texture-based design.
 
-Centralized Configuration Engine: A strict separation of content and structure, allowing global text copy, branding metadata, and background asset references to be updated globally from a single file.
+**Live Demo:** [prestige-lawn.vercel.app](https://prestige-lawn.vercel.app)
 
-Fully Responsive Web Design: Hand-tailored utility breakpoints ensuring pixel-perfect layouts across mobile devices, tablets, laptops, and ultra-wide displays.
+---
 
-High-Conversion CTAs: Strategically positioned Call-to-Action buttons utilizing interactive hover states to organically guide users toward requesting free estimates.
+## Tech Stack
 
-🛠️ Architecture & Technical Execution
-The project is built around a modern front-end stack designed for optimal execution speed, developer experience, and maintainability.
+- **React 18** — Component-based UI architecture
+- **TypeScript** — Type-safe development
+- **Tailwind CSS v4** — Utility-first styling with responsive design
+- **Framer Motion** — Scroll-triggered animations and micro-interactions
+- **Vite** — Fast build tooling and hot module replacement
+- **react-compare-slider** — Before/after drag comparison for gallery
+- **embla-carousel** — Production-grade carousel for reviews
+- **Vercel** — Deployment and hosting
 
-🚀 The Tech Stack
-Framework: React 19 + Vite
+**Planned Integrations:**
+- **Sanity CMS** — Headless content management for client self-service
+- **Resend** — Transactional email for contact form submissions
 
-Execution: Chosen for blazing-fast Hot Module Replacement (HMR) during development and incredibly lightweight, optimized asset bundling for production deployment.
+---
 
-Language: TypeScript
+## Features
 
-Execution: Implemented strict type safety across configuration models, component props, and animation variants to catch errors at compile time and ensure long-term code maintainability.
+- **Config-Driven Architecture** — All business info, theme colors, textures, and section content controlled from a single `site.config.ts` file. Swap the config to rebrand the entire site for a new client.
+- **Video Hero** — Full-viewport background video with overlay, animated badge, and dual CTA buttons.
+- **Before & After Gallery** — Drag slider powered by react-compare-slider. Works on desktop (mouse drag) and mobile (touch drag). Custom gold-branded handle.
+- **Infinite Review Carousel** — CSS-driven infinite scroll with hover and touch pause. Concrete-textured cards with star ratings.
+- **Contact Form** — First name, last name, phone, service dropdown, message. Gold focus states. Success confirmation state. Resend integration ready.
+- **Floating Nav Pill** — Sticky navigation with backdrop blur. Darkens on scroll. Mobile hamburger with animated X transition and full-screen overlay menu.
+- **Texture-Based Design System** — Three material textures (grass, stone, concrete) create visual rhythm through alternating section backgrounds and card surfaces.
+- **Fully Responsive** — Every section tested across desktop, tablet, and mobile breakpoints.
+- **Scroll Animations** — Staggered entrance animations on all sections using Framer Motion's `whileInView` with `viewport` thresholds.
 
-Styling: Tailwind CSS v4
+---
 
-Execution: Leveraged Tailwind v4's updated architectural engine to apply high-performance utility classes, custom theme layers, and advanced opacity blending directly within the markup.
+## Project Structure
 
-Animations: Framer Motion
+```
+prestige-lawn/
+├── public/
+│   ├── assets/
+│   │   ├── gallery/          # Before/after photos (before-1.jpg, after-1.jpg, etc.)
+│   │   ├── grass-texture.jpg
+│   │   ├── concrete-texture.jpg
+│   │   ├── stone-texture.jpg
+│   │   ├── hero-video.mp4
+│   │   └── team-photo.jpg
+│   └── favicon.ico
+├── src/
+│   ├── config/
+│   │   └── site.config.ts    # Single source of truth for all business & theme data
+│   ├── components/
+│   │   ├── Nav/Nav.tsx
+│   │   ├── Hero/Hero.tsx
+│   │   ├── Services/Services.tsx
+│   │   ├── About/About.tsx
+│   │   ├── TrustBar/TrustBar.tsx
+│   │   ├── Process/Process.tsx
+│   │   ├── Gallery/Gallery.tsx
+│   │   ├── Reviews/Reviews.tsx
+│   │   ├── Contact/Contact.tsx
+│   │   └── Footer/Footer.tsx
+│   ├── App.tsx
+│   └── main.tsx
+├── index.html
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+```
 
-Execution: Leveraged declaration-based layout animations to orchestrate complex, sequenced transitions without cluttering the React component rendering lifecycles.
+---
 
-Icons: Lucide React
+## Section Breakdown
 
-Execution: Clean, vector-based SVG iconography rendering natively within the Virtual DOM.
+| Section | Background | Card Texture | Purpose |
+|---------|-----------|-------------|---------|
+| Hero | Video | — | First impression, dual CTA |
+| Services | Grass | Concrete | 6 service cards with hover states |
+| About | Stone | — | Founder story, team photo, stats |
+| TrustBar | Grass | Concrete | 3 trust/promise cards |
+| Process | Grass | Concrete | 4-step how-it-works flow |
+| Gallery | Stone | — | 6 before/after drag sliders |
+| Reviews | Grass | Concrete | Infinite scroll carousel |
+| Contact | Grass | Concrete (form block) | Lead capture form |
+| Footer | Dark (#0a0a0a) | — | Logo, contact info, credits |
 
-📁 Directory Structure
-The workspace follows a highly scalable, domain-driven component pattern:
+---
 
-Plaintext
-src/
-├── assets/           # Global static graphics, textures, and asset files
-├── components/       # Self-contained, modular UI building blocks
-│   ├── About/        # About section outlining company history and story
-│   ├── Contact/      # Comprehensive estimate intake and contact form
-│   ├── Footer/       # Bottom layout featuring navigation mappings and copyright
-│   ├── Gallery/      # Premium project visual showcase display layout
-│   ├── Hero/         # Above-the-fold screen with staggered text entries
-│   ├── Nav/          # Responsive navigation header with mobile toggle handling
-│   ├── Process/      # Step-by-step sequential customer workflow mapping
-│   ├── Reviews/      # Customer testimonials slider and grid layout
-│   ├── Services/     # Feature grid breaking down primary service offerings
-│   └── TrustBar/     # Key performance metrics and social proof validation ribbon
-├── config/           # Core configuration files (site.config.ts)
-├── App.tsx           # Main application hub assembling the component tree
-└── main.tsx          # Application entry point mounting the React DOM
-🧠 Technical Architecture & Design Decisions
-1. Component-Driven Architecture
-The Decision: Instead of crafting a single monolithic page template, the user interface was decoupled into highly isolated, self-contained components within src/components/.
+## Getting Started
 
-The Rationale: This guarantees that editing a feature inside the step-by-step workflow (Process.tsx) or altering an interactive map block inside the intake section (Contact.tsx) will never inadvertently cause visual regression or style bleed inside the header navigation (Nav.tsx) or main intro screen (Hero.tsx).
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-2. Centralized Configuration Modeling (site.config.ts)
-The Decision: All text configurations, messaging, contact coordinates, service breakdowns, and universal structural background paths are completely decoupled from the presentation components. They are managed through a centralized configuration file.
+### Installation
 
-The Rationale: This treats the React components as reusable UI engines. If the client updates a phone number, scales pricing, swaps a core tagline, or adjusts the universal background image textures, the modification is executed in one single line of code inside site.config.ts without needing to parse, modify, or test individual tsx markup layouts.
-
-3. Advanced Animation Orchestration (Staggered Children)
-The Decision: Instead of elements clumsily appearing all at once or relying on fragile, time-delayed CSS animations, Framer Motion parent/child variants were structured into the layout.
-
-The Rationale: By defining containerVariants with properties like staggerChildren: 0.15 and delayChildren: 0.2, the entry flow automatically sequences itself. The premium capsule badge fades and slides up first, instantly followed by the primary title text, the descriptive paragraph, and finally the interactive action buttons. This structural scaffolding delivers an immersive user experience without hurting performance.
-
-4. Background Layering and High-Contrast Accessibility
-The Decision: Overlays are meticulously structured using background images combined with responsive Tailwind opacity controls.
-
-The Rationale: To maintain an industrial, premium texture across sections like the Hero, global configuration background paths (such as concreteTexture) are bound directly to element style tags. To ensure the white and emerald typography passes strict color contrast accessibility rules, custom background filters (bg-black/70) are applied over the imagery, ensuring crisp text legibility on all screen sizes.
-
-💻 Local Installation & Development
-To spin up this project in a local development environment, follow these steps:
-
-Prerequisites
-Make sure you have Node.js installed on your computer.
-
-1. Install Project Dependencies
-Navigate to the root directory containing the package.json file and run:
-
-Bash
+```bash
+git clone https://github.com/Evan-Boodoosingh/prestige-lawn.git
+cd prestige-lawn
 npm install
-2. Launch Local Development Server
-Boot up Vite's lightning-fast local testing server:
+```
 
-Bash
+### Development
+
+```bash
 npm run dev
-Open your browser and navigate to the local server URL provided in the terminal output (typically http://localhost:5173).
+```
 
-3. Compiling for Production
-To bundle, optimize, and tree-shake the TypeScript source code into highly compressed static assets ready for production deployment:
+Opens at `http://localhost:5173`
 
-Bash
+### Build
+
+```bash
 npm run build
-The compiled build output will be successfully written to the local /dist directory.
+```
 
-4. Local Build Preview
-To spin up a local node server to preview the production-ready build and measure raw performance before deployment:
+### Deploy
 
-Bash
-npm run preview
+Push to GitHub and connect to Vercel. Vite preset is auto-detected.
+
+---
+
+## Customization
+
+All business information and theme settings live in `src/config/site.config.ts`:
+
+```typescript
+export const siteConfig = {
+  business: {
+    name: "Prestige Lawn & Landscape",
+    phone: "(863) 555-0190",
+    email: "hello@prestigelawn.com",
+    hours: "Mon–Sat, 7am–6pm",
+    address: "Polk County, FL",
+    serviceAreas: ["Lakeland", "Winter Haven", "Haines City", "Davenport"],
+  },
+  theme: {
+    accentColor: "#C9A84C",
+    grassTexture: "/assets/grass-texture.jpg",
+    concreteTexture: "/assets/concrete-texture.jpg",
+    stoneTexture: "/assets/stone-texture.jpg",
+  },
+  hero: {
+    type: "video",
+    src: "/assets/hero-video.mp4",
+    headline: "Your Lawn.",
+    headlineAccent: "Perfected.",
+    subheading: "Premium lawn care and landscaping for homeowners who refuse to settle for average.",
+  },
+}
+```
+
+To rebrand for a new client — update the config, swap the textures and photos, deploy.
+
+---
+
+## Design Decisions
+
+- **Texture alternation** — Grass and stone backgrounds alternate to create visual rhythm. Concrete is used exclusively as a card surface material, never as a full section background.
+- **Gold accent (#C9A84C)** — Warm gold communicates premium quality without being flashy. Used for icons, labels, hover states, focus rings, and the gallery slider handle.
+- **Typography** — Playfair Display (serif) for headings, Inter for body text. Serif headings signal craftsmanship. `clamp()` used throughout for fluid responsive sizing.
+- **No promotions section** — Research showed that discounts undermine premium positioning. Cut in favor of a tighter conversion funnel.
+- **No nav links in footer** — The floating pill nav is always visible, making footer nav redundant.
+- **CSS scroll for reviews over JS carousel** — After testing multiple approaches (JS-controlled, Embla with fixed widths), pure CSS infinite scroll provided the smoothest, most reliable loop without edge cases.
+
+---
+
+## Roadmap
+
+- [ ] Sanity CMS integration — client-managed content
+- [ ] Resend backend — contact form email routing
+- [ ] Google Reviews API — automatic review pulling
+- [ ] SEO meta tags via React Helmet
+- [ ] Image optimization — compress concrete-texture.jpg from 8.3MB
+- [ ] Performance audit — Lighthouse score optimization
+
+---
+
+## Author
+
+**Evan Boodoosingh**
+- Portfolio: [evanboodoosingh.vercel.app](https://evanboodoosingh.vercel.app)
+- GitHub: [github.com/Evan-Boodoosingh](https://github.com/Evan-Boodoosingh)
+
+---
+
+## License
+
+This project is a demo template. All stock photos are from Unsplash and Pexels (free for commercial use). The business name "Prestige Lawn & Landscape" and all reviews are fictional.
