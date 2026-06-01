@@ -7,6 +7,7 @@ import Process from "./components/Process/Process"
 import Gallery from "./components/Gallery/Gallery"
 import Reviews from "./components/Reviews/Reviews"
 import Contact from "./components/Contact/Contact"
+import Footer from "./components/Footer/Footer"
 import { siteConfig } from "./config/site.config"
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       <Gallery/>
       <Reviews/>
       <Contact/>
+      <Footer/>
     </div>
   )
 }

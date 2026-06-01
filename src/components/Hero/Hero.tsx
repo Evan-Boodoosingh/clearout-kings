@@ -29,11 +29,7 @@ export default function Hero() {
       id="home"
       className="relative w-full h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* ── VIDEO BACKGROUND ── */}
-      {/* autoPlay — starts immediately without user interaction */}
-      {/* muted — required for autoplay to work in all browsers */}
-      {/* loop — restarts when it reaches the end */}
-      {/* playsInline — prevents iOS from going fullscreen on play */}
+      {/* VIDEO BACKGROUND */}
       {siteConfig.hero.type === "video" ? (
         <video
           autoPlay
@@ -55,14 +51,10 @@ export default function Hero() {
         />
       )}
 
-      {/* ── DARK OVERLAY ── */}
-      {/* Sits on top of video, behind content */}
-      {/* Makes text readable regardless of video brightness */}
+      {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/55 z-10" />
 
-      {/* ── HERO CONTENT ── */}
-      {/* z-20 puts it above both video and overlay */}
-      {/* pt-28 clears the floating nav pill */}
+      {/* HERO CONTENT */}
       <motion.div
         className="relative z-20 flex flex-col items-center text-center px-6 pt-28 max-w-4xl mx-auto"
         variants={containerVariants}
@@ -115,47 +107,38 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="
-              px-8 py-4 rounded-full
-              bg-white text-black
-              text-sm font-bold tracking-widest uppercase
-              hover:bg-white/90
-              transition-all duration-200
-              no-underline whitespace-nowrap
-            "
+            className="px-8 py-4 rounded-full bg-white text-black text-sm font-bold tracking-widest uppercase hover:bg-white/90 transition-all duration-200 no-underline whitespace-nowrap"
           >
             Get a Free Quote
           </a>
           <a
             href="#gallery"
-            className="
-              px-8 py-4 rounded-full
-              border border-white/40 text-white
-              text-sm font-medium tracking-widest uppercase
-              hover:border-white hover:bg-white/10
-              transition-all duration-200
-              no-underline whitespace-nowrap
-            "
+            className="px-8 py-4 rounded-full border border-white/40 text-white text-sm font-medium tracking-widest uppercase hover:border-white hover:bg-white/10 transition-all duration-200 no-underline whitespace-nowrap"
           >
             View Our Work
           </a>
         </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-20 flex flex-col items-center gap-2"
-        >
-          <span className="text-white/30 text-xs tracking-widest uppercase">
-            Scroll
-          </span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-8 bg-linear-to-b from-white/30 to-transparent"
-          />
-        </motion.div>
       </motion.div>
+
+      {/* SCROLL INDICATOR */}
+      {/* Absolutely positioned so it never affects the flex layout above */}
+      {/* bottom-8 pins it near the bottom of the hero section */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+      >
+        <span className="text-white/30 text-xs tracking-widest uppercase">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-px h-8 bg-linear-to-b from-white/30 to-transparent"
+        />
+      </motion.div>
+
     </section>
   )
 }
