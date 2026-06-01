@@ -62,7 +62,7 @@ export default function Hero() {
         animate="visible"
       >
         {/* Badge */}
-        <motion.div
+        {/* <motion.div
           variants={itemVariants}
           className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 mb-8"
           style={{ background: "rgba(255,255,255,0.06)" }}
@@ -74,7 +74,7 @@ export default function Hero() {
           <span className="text-xs tracking-widest uppercase text-white/70">
             Serving Central Florida
           </span>
-        </motion.div>
+        </motion.div> */}
 
         {/* Headline */}
         <motion.h1

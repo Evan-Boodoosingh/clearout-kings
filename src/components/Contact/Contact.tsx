@@ -67,20 +67,20 @@ export default function Contact() {
         viewport={{ once: true, margin: "-100px" }}
       >
         <div className="flex items-center justify-center gap-4 mb-4">
-          <div
+          {/* <div
             className="h-px w-12"
             style={{ background: siteConfig.theme.accentColor }}
-          />
-          <span
+          /> */}
+          {/* <span
             className="text-sm text-white tracking-widest uppercase"
             // style={{ color: siteConfig.theme.accentColor }}
           >
             Get In Touch
-          </span>
-          <div
+          </span> */}
+          {/* <div
             className="h-px w-12"
             style={{ background: siteConfig.theme.accentColor }}
-          />
+          /> */}
         </div>
         <h2
           className="font-serif font-bold text-white leading-tight"

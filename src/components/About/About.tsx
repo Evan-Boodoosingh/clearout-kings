@@ -64,8 +64,8 @@ export default function About() {
             style={{ background: siteConfig.theme.accentColor }}
           />
           <span
-            className="text-xs tracking-widest uppercase"
-            style={{ color: siteConfig.theme.accentColor }}
+            className="text-md text-white tracking-widest uppercase"
+            // style={{ color: siteConfig.theme.accentColor }}
           >
             Who We Are
           </span>

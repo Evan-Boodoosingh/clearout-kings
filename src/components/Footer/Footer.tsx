@@ -9,7 +9,7 @@ export default function Footer() {
       style={{ background: "#0a0a0a", borderTop: "1px solid rgba(255,255,255,0.06)" }}
     >
       {/* Main footer — two columns, logo left, contact right */}
-      <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
 
         {/* Left — Logo and tagline */}
         <div className="flex flex-col gap-2">
