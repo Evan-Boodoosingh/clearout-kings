@@ -1,73 +1,107 @@
-# React + TypeScript + Vite
+📋 Project Overview
+The Prestige Lawn landing page is engineered to serve as a high-performance marketing and lead-generation asset. It transitions away from traditional, generic lawn care designs by adopting a premium, cinematic visual language—utilizing rich near-black textures mixed with sharp emerald accents to convey elite craftsmanship and reliability.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Core Features
+Staggered Micro-Interactions: Fluid entry animations on text, badges, and structural layouts that drive visitor engagement from the millisecond the page loads.
 
-Currently, two official plugins are available:
+Centralized Configuration Engine: A strict separation of content and structure, allowing global text copy, branding metadata, and background asset references to be updated globally from a single file.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Fully Responsive Web Design: Hand-tailored utility breakpoints ensuring pixel-perfect layouts across mobile devices, tablets, laptops, and ultra-wide displays.
 
-## React Compiler
+High-Conversion CTAs: Strategically positioned Call-to-Action buttons utilizing interactive hover states to organically guide users toward requesting free estimates.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🛠️ Architecture & Technical Execution
+The project is built around a modern front-end stack designed for optimal execution speed, developer experience, and maintainability.
 
-## Expanding the ESLint configuration
+🚀 The Tech Stack
+Framework: React 19 + Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Execution: Chosen for blazing-fast Hot Module Replacement (HMR) during development and incredibly lightweight, optimized asset bundling for production deployment.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Language: TypeScript
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Execution: Implemented strict type safety across configuration models, component props, and animation variants to catch errors at compile time and ensure long-term code maintainability.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Styling: Tailwind CSS v4
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Execution: Leveraged Tailwind v4's updated architectural engine to apply high-performance utility classes, custom theme layers, and advanced opacity blending directly within the markup.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Animations: Framer Motion
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Execution: Leveraged declaration-based layout animations to orchestrate complex, sequenced transitions without cluttering the React component rendering lifecycles.
+
+Icons: Lucide React
+
+Execution: Clean, vector-based SVG iconography rendering natively within the Virtual DOM.
+
+📁 Directory Structure
+The workspace follows a highly scalable, domain-driven component pattern:
+
+Plaintext
+src/
+├── assets/           # Global static graphics, textures, and asset files
+├── components/       # Self-contained, modular UI building blocks
+│   ├── About/        # About section outlining company history and story
+│   ├── Contact/      # Comprehensive estimate intake and contact form
+│   ├── Footer/       # Bottom layout featuring navigation mappings and copyright
+│   ├── Gallery/      # Premium project visual showcase display layout
+│   ├── Hero/         # Above-the-fold screen with staggered text entries
+│   ├── Nav/          # Responsive navigation header with mobile toggle handling
+│   ├── Process/      # Step-by-step sequential customer workflow mapping
+│   ├── Reviews/      # Customer testimonials slider and grid layout
+│   ├── Services/     # Feature grid breaking down primary service offerings
+│   └── TrustBar/     # Key performance metrics and social proof validation ribbon
+├── config/           # Core configuration files (site.config.ts)
+├── App.tsx           # Main application hub assembling the component tree
+└── main.tsx          # Application entry point mounting the React DOM
+🧠 Technical Architecture & Design Decisions
+1. Component-Driven Architecture
+The Decision: Instead of crafting a single monolithic page template, the user interface was decoupled into highly isolated, self-contained components within src/components/.
+
+The Rationale: This guarantees that editing a feature inside the step-by-step workflow (Process.tsx) or altering an interactive map block inside the intake section (Contact.tsx) will never inadvertently cause visual regression or style bleed inside the header navigation (Nav.tsx) or main intro screen (Hero.tsx).
+
+2. Centralized Configuration Modeling (site.config.ts)
+The Decision: All text configurations, messaging, contact coordinates, service breakdowns, and universal structural background paths are completely decoupled from the presentation components. They are managed through a centralized configuration file.
+
+The Rationale: This treats the React components as reusable UI engines. If the client updates a phone number, scales pricing, swaps a core tagline, or adjusts the universal background image textures, the modification is executed in one single line of code inside site.config.ts without needing to parse, modify, or test individual tsx markup layouts.
+
+3. Advanced Animation Orchestration (Staggered Children)
+The Decision: Instead of elements clumsily appearing all at once or relying on fragile, time-delayed CSS animations, Framer Motion parent/child variants were structured into the layout.
+
+The Rationale: By defining containerVariants with properties like staggerChildren: 0.15 and delayChildren: 0.2, the entry flow automatically sequences itself. The premium capsule badge fades and slides up first, instantly followed by the primary title text, the descriptive paragraph, and finally the interactive action buttons. This structural scaffolding delivers an immersive user experience without hurting performance.
+
+4. Background Layering and High-Contrast Accessibility
+The Decision: Overlays are meticulously structured using background images combined with responsive Tailwind opacity controls.
+
+The Rationale: To maintain an industrial, premium texture across sections like the Hero, global configuration background paths (such as concreteTexture) are bound directly to element style tags. To ensure the white and emerald typography passes strict color contrast accessibility rules, custom background filters (bg-black/70) are applied over the imagery, ensuring crisp text legibility on all screen sizes.
+
+💻 Local Installation & Development
+To spin up this project in a local development environment, follow these steps:
+
+Prerequisites
+Make sure you have Node.js installed on your computer.
+
+1. Install Project Dependencies
+Navigate to the root directory containing the package.json file and run:
+
+Bash
+npm install
+2. Launch Local Development Server
+Boot up Vite's lightning-fast local testing server:
+
+Bash
+npm run dev
+Open your browser and navigate to the local server URL provided in the terminal output (typically http://localhost:5173).
+
+3. Compiling for Production
+To bundle, optimize, and tree-shake the TypeScript source code into highly compressed static assets ready for production deployment:
+
+Bash
+npm run build
+The compiled build output will be successfully written to the local /dist directory.
+
+4. Local Build Preview
+To spin up a local node server to preview the production-ready build and measure raw performance before deployment:
+
+Bash
+npm run preview
