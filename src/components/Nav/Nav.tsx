@@ -2,14 +2,10 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { siteConfig } from "../../config/site.config"
 
-// Links defined outside component so they are never recreated on re-render
-// This is a best practice — if this array were inside the component,
-// React would create a new array every single render which wastes memory
 const navLinks = [
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
   { label: "Gallery", href: "#gallery" },
-  // { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -17,16 +13,12 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
-  // Scroll detection — darkens the pill background after 50px scroll
-  // We clean up the event listener on unmount to prevent memory leaks
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Lock body scroll when mobile menu is open
-  // Without this the page scrolls behind the overlay which feels broken
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : ""
     return () => { document.body.style.overflow = "" }
@@ -35,7 +27,7 @@ export default function Nav() {
   return (
     <AnimatePresence>
 
-      {/* ── DESKTOP NAV — floating pill, hidden on mobile ── */}
+      {/* ── DESKTOP NAV ── */}
       <motion.header
         key="desktop-nav"
         initial={{ y: -100, opacity: 0 }}
@@ -54,13 +46,16 @@ export default function Nav() {
             ${scrolled ? "bg-black/70 shadow-lg" : "bg-black/50"}
           `}
         >
-          {/* Logo — text based for now, swap with img tag when logo is ready */}
-          <div className="font-serif text-base font-bold text-white uppercase tracking-widest whitespace-nowrap">
+          {/* Logo — clicking takes you back to top via #home */}
+          <a
+            href="#home"
+            className="font-serif text-base font-bold text-white uppercase tracking-widest whitespace-nowrap no-underline"
+          >
             Prestige{" "}
             <span style={{ color: siteConfig.theme.accentColor }}>
               Lawn
             </span>
-          </div>
+          </a>
 
           {/* Desktop links */}
           <nav className="flex items-center gap-4 lg:gap-8">
@@ -75,7 +70,7 @@ export default function Nav() {
             ))}
           </nav>
 
-          {/* CTA — most important action on the page, always visible */}
+          {/* CTA */}
           <a
             href="#contact"
             className="
@@ -92,7 +87,7 @@ export default function Nav() {
         </div>
       </motion.header>
 
-      {/* ── MOBILE NAV — floating pill, hidden on desktop ── */}
+      {/* ── MOBILE NAV ── */}
       <motion.header
         key="mobile-nav"
         initial={{ y: -100, opacity: 0 }}
@@ -110,16 +105,18 @@ export default function Nav() {
             ${scrolled ? "bg-black/60" : "bg-black/60"}
           `}
         >
-          {/* Logo */}
-          <div className="font-serif text-sm font-bold text-white uppercase tracking-widest">
+          {/* Logo — clicking takes you back to top via #home */}
+          <a
+            href="#home"
+            className="font-serif text-sm font-bold text-white uppercase tracking-widest no-underline"
+          >
             Prestige{" "}
             <span style={{ color: siteConfig.theme.accentColor }}>
               Lawn
             </span>
-          </div>
+          </a>
 
-          {/* Hamburger — animated into X when open */}
-          {/* Using Framer Motion animate prop for smooth morphing */}
+          {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="flex flex-col items-center justify-center gap-1.5 w-9 h-9 p-1 bg-transparent border-none cursor-pointer"
@@ -145,8 +142,6 @@ export default function Nav() {
       </motion.header>
 
       {/* ── MOBILE OVERLAY MENU ── */}
-      {/* Full screen takeover — same pattern as Ash Tatts */}
-      {/* AnimatePresence handles the exit animation when menuOpen becomes false */}
       {menuOpen && (
         <motion.div
           key="mobile-overlay"
@@ -157,9 +152,6 @@ export default function Nav() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
         >
-          {/* Nav links — giant serif, staggered animation */}
-          {/* Each link staggers in 60ms after the previous one */}
-          {/* This creates the cascading effect that feels premium */}
           <nav className="flex flex-col mt-12">
             {navLinks.map((link, i) => (
               <motion.div
@@ -190,7 +182,6 @@ export default function Nav() {
             ))}
           </nav>
 
-          {/* Bottom section — contact info + CTA */}
           <motion.div
             className="flex flex-col gap-6"
             initial={{ opacity: 0, y: 16 }}
@@ -198,8 +189,6 @@ export default function Nav() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, delay: 0.35 }}
           >
-            {/* Phone number — critical for home services clients */}
-            {/* People on mobile want to call, not fill out forms */}
             <div className="flex flex-col gap-1">
               <span className="text-xs tracking-widest uppercase text-white/30">
                 Call Us
@@ -213,7 +202,6 @@ export default function Nav() {
               </a>
             </div>
 
-            {/* CTA button */}
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
