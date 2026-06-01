@@ -1,11 +1,12 @@
-import { useState, useEffect, useRef } from "react"
-import { motion } from "framer-motion"
-import type { Variants } from "framer-motion"
-import { siteConfig } from "../../config/site.config"
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+  ReactCompareSliderHandle,
+} from "react-compare-slider";
+import { siteConfig } from "../../config/site.config";
 
-// Gallery items defined outside component — never recreated on re-render
-// Each item has a before and after image, a label, and a location
-// These will eventually come from Sanity CMS
 const galleryItems = [
   {
     id: 1,
@@ -49,7 +50,7 @@ const galleryItems = [
     before: "/assets/gallery/before-6.jpg",
     after: "/assets/gallery/after-6.jpg",
   },
-]
+];
 
 const headingVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -58,14 +59,14 @@ const headingVariants: Variants = {
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" },
   },
-}
+};
 
 const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.1 },
   },
-}
+};
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -74,157 +75,85 @@ const cardVariants: Variants = {
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" },
   },
-}
+};
 
-// Individual gallery card component
-// Separated so each card manages its own state independently
-// This means each card has its own before/after toggle and auto-loop
-function GalleryCard({ item }: { item: typeof galleryItems[0] }) {
-  // true = showing "after", false = showing "before"
-  const [showAfter, setShowAfter] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
-
-  // Auto-loop effect
-  // Alternates between before and after every 2.5 seconds
-  // Pauses when the user hovers — they take manual control
-  // Restarts when they mouse out
-  useEffect(() => {
-    if (!isHovered) {
-      intervalRef.current = setInterval(() => {
-        setShowAfter((prev) => !prev)
-      }, 5000)
-    }
-
-    // Cleanup — clear the interval when hover state changes or component unmounts
-    // Without this we'd have multiple intervals running simultaneously
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current)
-      }
-    }
-  }, [isHovered])
-
+function GalleryCard({ item }: { item: (typeof galleryItems)[0] }) {
   return (
     <motion.div
       variants={cardVariants}
-      className="group relative overflow-hidden rounded-2xl cursor-pointer"
+      className="relative overflow-hidden rounded-2xl"
       style={{ aspectRatio: "4/3" }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false)
-        // Don't reset the state on mouse leave
-        // Let the auto-loop continue from wherever it left off
-      }}
     >
-      {/* BEFORE image */}
-      {/* opacity transitions create the crossfade effect */}
-      <div
-        className="absolute inset-0 transition-opacity duration-700"
-        style={{ opacity: showAfter ? 0 : 1 }}
-      >
-        <div
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${item.before})`,
-            backgroundColor: "#1a1a1a",
-          }}
-        />
-      </div>
-
-      {/* AFTER image */}
-      <div
-        className="absolute inset-0 transition-opacity duration-700"
-        style={{ opacity: showAfter ? 1 : 0 }}
-      >
-        <div
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${item.after})`,
-            backgroundColor: "#1a1a1a",
-          }}
-        />
-      </div>
-
-      {/* Placeholder shown when no real image is loaded */}
-      {/* This sits behind the image divs and shows through until real photos are added */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/60">
-        <div
-          className="text-xs tracking-widest uppercase font-semibold"
-          style={{ color: siteConfig.theme.accentColor }}
-        >
-          {showAfter ? "After" : "Before"}
-        </div>
-        <div className="text-white/20 text-xs tracking-widest uppercase">
-          Photo coming soon
-        </div>
-      </div>
-
-      {/* Dark gradient overlay at bottom — always visible */}
-      {/* Creates space for the card info to be readable */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/90 to-transparent" />
-
-      {/* Card info — label and location */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
-        <div>
-          <div className="text-white font-semibold text-sm">
-            {item.label}
+      <ReactCompareSlider
+        style={{ width: "100%", height: "100%" }}
+        itemOne={
+          // Before image — label baked in so it only shows on the before side
+          <div className="relative w-full h-full">
+            <ReactCompareSliderImage
+              src={item.before}
+              alt={`Before — ${item.label}`}
+              style={{ objectFit: "cover" }}
+            />
+            <div
+              className="absolute top-3 left-3 px-2 py-1 rounded text-xs font-semibold tracking-wide pointer-events-none"
+              style={{
+                background: "rgba(0,0,0,0.6)",
+                color: "rgba(255,255,255,0.7)",
+              }}
+            >
+              Before
+            </div>
           </div>
-          <div className="text-white/50 text-xs mt-0.5">
-            {item.location}
+        }
+        itemTwo={
+          // After image — label baked in so it only shows on the after side
+          <div className="relative w-full h-full">
+            <ReactCompareSliderImage
+              src={item.after}
+              alt={`After — ${item.label}`}
+              style={{ objectFit: "cover" }}
+            />
+            <div
+              className="absolute top-3 right-3 px-2 py-1 rounded text-xs font-semibold tracking-wide pointer-events-none"
+              style={{
+                background: "rgba(0,0,0,0.6)",
+                color: "rgba(255,255,255,0.7)",
+              }}
+            >
+              After
+            </div>
           </div>
-        </div>
-
-        {/* Before/After toggle buttons — visible on hover */}
-        {/* opacity-0 by default, appears when card is hovered */}
-        <div
-          className={`flex gap-1.5 transition-opacity duration-300 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <button
-            onClick={() => setShowAfter(false)}
-            className="px-3 py-1 rounded-full text-xs font-semibold tracking-wide transition-all duration-200"
-            style={{
-              background: !showAfter
-                ? siteConfig.theme.accentColor
-                : "rgba(255,255,255,0.15)",
-              color: !showAfter ? "#111" : "#fff",
+        }
+        handle={
+          <ReactCompareSliderHandle
+            buttonStyle={{
+              backdropFilter: "blur(4px)",
+              background: siteConfig.theme.accentColor,
+              border: "none",
+              color: "#111",
+              boxShadow: "0 0 12px rgba(0,0,0,0.4)",
+              width: "36px",
+              height: "36px",
             }}
-          >
-            Before
-          </button>
-          <button
-            onClick={() => setShowAfter(true)}
-            className="px-3 py-1 rounded-full text-xs font-semibold tracking-wide transition-all duration-200"
-            style={{
-              background: showAfter
-                ? siteConfig.theme.accentColor
-                : "rgba(255,255,255,0.15)",
-              color: showAfter ? "#111" : "#fff",
+            linesStyle={{
+              background: siteConfig.theme.accentColor,
+              width: "2px",
+              opacity: 0.8,
             }}
-          >
-            After
-          </button>
-        </div>
-      </div>
+          />
+        }
+      />
 
-      {/* Before/After indicator pill — visible when NOT hovered */}
-      {/* Teaches the user there are two states without being intrusive */}
-      <div
-        className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold tracking-wide transition-opacity duration-300 ${
-          isHovered ? "opacity-0" : "opacity-100"
-        }`}
-        style={{
-          background: "rgba(0,0,0,0.6)",
-          border: `1px solid ${siteConfig.theme.accentColor}50`,
-          color: siteConfig.theme.accentColor,
-        }}
-      >
-        {showAfter ? "After" : "Before"}
+      {/* Dark gradient at bottom for card info */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/90 to-transparent pointer-events-none" />
+
+      {/* Card info */}
+      <div className="absolute bottom-0 left-0 right-0 p-4 pointer-events-none">
+        <div className="text-white font-semibold text-sm">{item.label}</div>
+        <div className="text-white/50 text-xs mt-0.5">{item.location}</div>
       </div>
     </motion.div>
-  )
+  );
 }
 
 export default function Gallery() {
@@ -238,12 +167,9 @@ export default function Gallery() {
         backgroundPosition: "center",
       }}
     >
-      {/* Dark overlay on stone */}
       <div className="absolute inset-0 bg-black/70" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-
-        {/* Section heading */}
         <motion.div
           className="text-center mb-16"
           variants={headingVariants}
@@ -256,10 +182,7 @@ export default function Gallery() {
               className="h-px w-12"
               style={{ background: siteConfig.theme.accentColor }}
             />
-            <span
-              className="text-sm text-white tracking-widest uppercase"
-              // style={{ color: siteConfig.theme.accentColor }}
-            >
+            <span className="text-sm text-white tracking-widest uppercase">
               Proof of Work
             </span>
             <div
@@ -274,11 +197,11 @@ export default function Gallery() {
             Before & After
           </h2>
           <p className="text-white/50 mt-4 text-sm max-w-md mx-auto leading-relaxed">
-            Hover over any photo to see the transformation. Every project is real work by our team.
+            Drag the slider to reveal the transformation. Every project is real
+            work by our team.
           </p>
         </motion.div>
 
-        {/* Gallery grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
@@ -290,8 +213,7 @@ export default function Gallery() {
             <GalleryCard key={item.id} item={item} />
           ))}
         </motion.div>
-
       </div>
     </section>
-  )
+  );
 }

@@ -151,7 +151,7 @@ export default function Nav() {
         <motion.div
           key="mobile-overlay"
           className="fixed inset-0 z-40 flex flex-col justify-between px-8 py-9 md:hidden"
-          style={{ background: "rgba(8, 8, 8, 0.98)" }}
+          style={{ background: "rgba(8, 8, 8, 1)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
