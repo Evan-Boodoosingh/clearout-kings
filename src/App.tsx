@@ -1,7 +1,7 @@
 import Nav from "./components/Nav/Nav"
 import Hero from "./components/Hero/Hero"
 import Services from "./components/Services/Services"
-import About from "./components/About/About"
+// import About from "./components/About/About"
 import TrustBar from "./components/TrustBar/TrustBar"
 import Process from "./components/Process/Process"
 import Gallery from "./components/Gallery/Gallery"
@@ -12,19 +12,19 @@ import { siteConfig } from "./config/site.config"
 
 function App() {
   return (
-    <div
-          style={{
+      <div
+      className="relative"
+      style={{
         backgroundImage: `url(${siteConfig.theme.grassTexture})`,
-        // backgroundSize: "cover",
         backgroundAttachment: "fixed",
-        // backgroundPosition: "center",
         minHeight: "100vh",
       }}
     >
+      <div className="fixed inset-0 bg-black/55 z-0 pointer-events-none" />
       <Nav />
       <Hero />
       <Services />
-      <About/>
+      {/* <About/> */}
       <TrustBar/>
       <Process/>
       <Gallery/>

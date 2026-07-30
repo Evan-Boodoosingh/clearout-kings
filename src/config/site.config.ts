@@ -1,39 +1,42 @@
 export const siteConfig = {
   business: {
-    name: "Prestige Lawn",
-    phone: "(863) 555-0190",
-    email: "hello@prestigelawn.com",
-    address: "Polk County, FL",
-    hours: "Mon–Sat, 7am–6pm",
-    serviceAreas: ["Lakeland", "Winter Haven", "Haines City", "Davenport"],
+    name: "Clearout Kings",
+    phone: "857-615-9906",
+    email: "clearoutkings@gmail.com",
+    address: "Chelsea, MA",
+    hours: "Mon–Sun, 7am–7pm",
+    serviceAreas: ["Chelsea", "Somerville", "Revere", "Everett", "Malden"],
   },
   hero: {
-    type: "video" as "video" | "image",
-    src: "/assets/hero-video.mp4",
-    headline: "Your Lawn.",
-    headlineAccent: "Perfected.",
+    type: "image" as "video" | "image",
+    src: "/assets/hero.JPG",
+    headline: "We clear it out.",
+    headlineAccent: "You get your space back.",
     subheading:
-      "Premium lawn care and landscaping for homeowners who refuse to settle for average.",
+      "Fast, careful attic, crawlspace, and basement cleanouts across greater Boston. We haul it all away and leave the space spotless.",
   },
   theme: {
-  accentColor: "#C9A84C",
-  grassTexture: "/assets/grass-texture.jpg",
-  concreteTexture: "/assets/concrete-texture.jpg",
-  stoneTexture: "/assets/stone-texture.jpg",
-},
+    accentColor: "#C9A24C",
+    grassTexture: "/assets/wood-texture.jpg",
+    concreteTexture: "/assets/cardboard-texture.jpg",
+    stoneTexture: "/assets/cardboard-texture.jpg",
+  },
   sections: {
     services: true,
     about: true,
     trustBar: true,
     gallery: true,
-    promotions: true,
+    promotions: false,
     reviews: true,
     contact: true,
+  },
+    cashOffer: {
+    heading: "Found something worth keeping?",
+    body: "As we clear your space, anything in good condition that you'd rather part with, we'll make a fair cash offer for on the spot. You get paid instead of paying to haul it away.",
   },
   social: {
     instagram: "https://instagram.com",
     facebook: "https://facebook.com",
   },
 };
-
 export type SiteConfig = typeof siteConfig;

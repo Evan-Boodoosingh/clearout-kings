@@ -1,77 +1,56 @@
-import { motion } from "framer-motion"
-import type { Variants } from "framer-motion"
-import { ClipboardList, MapPin, Hammer, Smile } from "lucide-react"
-import { siteConfig } from "../../config/site.config"
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
+import { Phone, Truck, Sparkles, ThumbsUp } from "lucide-react";
+import { siteConfig } from "../../config/site.config";
 
 const steps = [
   {
     id: 1,
-    icon: ClipboardList,
-    title: "Get Your Free Quote",
+    icon: Phone,
+    title: "Call or Text",
     description:
-      "Call, text, or fill out our form. We respond within 24 hours — guaranteed. No pressure, no obligation, just honest pricing from a team you can trust.",
+      "Reach out for a free same-day estimate. We'll ask a few quick questions about your space and schedule a time that works.",
   },
   {
     id: 2,
-    icon: MapPin,
-    title: "We Come To You",
+    icon: Truck,
+    title: "We Show Up",
     description:
-      "A Prestige team member visits your property, assesses your needs in person, and builds a custom plan tailored to your lawn. No guesswork, no surprises.",
+      "Our crew arrives on time, assesses the space, and gets to work. Most cleanouts are done in a single day.",
   },
   {
     id: 3,
-    icon: Hammer,
-    title: "We Get To Work",
+    icon: Sparkles,
+    title: "We Clear It All",
     description:
-      "Your dedicated crew shows up on the agreed date, on time, and gets straight to work. We treat your property with care and deliver results you can see immediately.",
+      "Everything gets hauled out, sorted, and disposed of responsibly. Anything valuable? We make you a cash offer on the spot.",
   },
   {
     id: 4,
-    icon: Smile,
-    title: "Sit Back & Enjoy",
+    icon: ThumbsUp,
+    title: "You Get Your Space Back",
     description:
-      "We handle everything on your schedule, every visit. Your only job is stepping outside and enjoying a lawn you're genuinely proud of.",
+      "We leave the space swept, clean, and usable. You pay after the job is done, not before.",
   },
-]
+];
 
 const headingVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-}
-
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 const containerVariants: Variants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15 },
-  },
-}
-
+  visible: { transition: { staggerChildren: 0.1 } },
+};
 const stepVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-}
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 export default function Process() {
   return (
-    <section
-      id="process"
-      className="relative py-24 px-6"
-      style={{
-        backgroundImage: `url(${siteConfig.theme.grassTexture})`,
-        backgroundAttachment: "fixed",
-      }}
-    >
+    <section id="process" className="relative py-24 px-6">
       <div className="relative z-10 max-w-6xl mx-auto w-full">
-
-        {/* Section heading */}
         <motion.div
           className="text-center mb-16"
           variants={headingVariants}
@@ -84,10 +63,7 @@ export default function Process() {
               className="h-px w-12"
               style={{ background: siteConfig.theme.accentColor }}
             />
-            <span
-              className="text-md text-white tracking-widest uppercase"
-            //   style={{ color: siteConfig.theme.accentColor }}
-            >
+            <span className="text-md text-white tracking-widest uppercase">
               How It Works
             </span>
             <div
@@ -96,20 +72,20 @@ export default function Process() {
             />
           </div>
           <h2
-            className="font-serif font-bold text-white leading-tight"
+            className="font-sans font-bold text-white leading-tight"
             style={{ fontSize: "clamp(32px, 5vw, 52px)" }}
           >
-            Simple Process.<br />
+            Simple Process.
+            <br />
             <em
               className="italic"
               style={{ color: siteConfig.theme.accentColor }}
             >
-              Exceptional Results.
+              Stress-Free Results.
             </em>
           </h2>
         </motion.div>
 
-        {/* Steps grid */}
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-4 gap-6"
           variants={containerVariants}
@@ -118,45 +94,31 @@ export default function Process() {
           viewport={{ once: true, margin: "-80px" }}
         >
           {steps.map((step) => {
-            const Icon = step.icon
-
+            const Icon = step.icon;
             return (
               <motion.div
                 key={step.id}
                 variants={stepVariants}
                 className="group relative overflow-hidden rounded-2xl"
                 style={{
-                  // Stone texture — same image as About section
-                 backgroundImage: `url(${siteConfig.theme.concreteTexture})`,
-backgroundSize: "500px",
+                  backgroundImage: `url(${siteConfig.theme.concreteTexture})`,
+                  backgroundSize: "500px",
                 }}
               >
-                {/* Dark overlay — matches About section exactly at bg-black/70 */}
-                <div className="absolute inset-0 bg-black/65 group-hover:bg-black/60 transition-all duration-300" />
-
-                {/* Gold accent line on hover */}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/15 transition-all duration-300" />
                 <div
                   className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: siteConfig.theme.accentColor }}
                 />
-
-                {/* Card content */}
                 <div className="relative z-10 p-8 flex flex-col items-center text-center gap-5">
-
-                  {/* Step number */}
-                  <span
-                    className="text-xs tracking-widest uppercase font-semibold"
-                    style={{ color: siteConfig.theme.accentColor }}
-                  >
+                  <span className="text-xs tracking-widest uppercase font-semibold text-white">
                     Step {step.id}
                   </span>
-
-                  {/* Icon circle */}
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                     style={{
-                      background: `${siteConfig.theme.accentColor}15`,
-                      border: `1px solid ${siteConfig.theme.accentColor}40`,
+                      background: "rgba(0,0,0,0.45)",
+                      border: "1px solid rgba(255,255,255,0.12)",
                     }}
                   >
                     <Icon
@@ -165,24 +127,18 @@ backgroundSize: "500px",
                       style={{ color: siteConfig.theme.accentColor }}
                     />
                   </div>
-
-                  {/* Title */}
                   <h3 className="text-white font-semibold text-base tracking-wide">
                     {step.title}
                   </h3>
-
-                  {/* Description */}
                   <p className="text-white/60 text-sm leading-relaxed">
                     {step.description}
                   </p>
-
                 </div>
               </motion.div>
-            )
+            );
           })}
         </motion.div>
 
-        {/* Bottom CTA */}
         <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 20 }}
@@ -192,13 +148,13 @@ backgroundSize: "500px",
         >
           <a
             href="#contact"
-            className="inline-block px-10 py-4 rounded-full bg-white text-black text-sm font-bold tracking-widest uppercase hover:bg-white/90 transition-all duration-200 no-underline"
+            className="inline-block px-10 py-4 rounded-full text-black text-sm font-bold tracking-widest uppercase hover:opacity-90 transition-all duration-200 no-underline"
+            style={{ background: siteConfig.theme.accentColor }}
           >
-            Start With a Free Quote
+            Get Your Free Estimate
           </a>
         </motion.div>
-
       </div>
     </section>
-  )
+  );
 }

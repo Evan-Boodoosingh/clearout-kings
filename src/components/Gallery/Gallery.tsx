@@ -11,42 +11,36 @@ const galleryItems = [
   {
     id: 1,
     label: "Lawn Transformation",
-    location: "Lakeland, FL",
     before: "/assets/gallery/before-1.jpg",
     after: "/assets/gallery/after-1.jpg",
   },
   {
     id: 2,
     label: "Landscape Install",
-    location: "Winter Haven, FL",
     before: "/assets/gallery/before-2.jpg",
     after: "/assets/gallery/after-2.jpg",
   },
   {
     id: 3,
     label: "Sod Installation",
-    location: "Haines City, FL",
     before: "/assets/gallery/before-3.jpg",
     after: "/assets/gallery/after-3.jpg",
   },
   {
     id: 4,
     label: "Hedge Trimming",
-    location: "Lakeland, FL",
     before: "/assets/gallery/before-4.jpg",
     after: "/assets/gallery/after-4.jpg",
   },
   {
     id: 5,
     label: "Fertilization Treatment",
-    location: "Davenport, FL",
     before: "/assets/gallery/before-5.jpg",
     after: "/assets/gallery/after-5.jpg",
   },
   {
     id: 6,
     label: "Full Yard Renovation",
-    location: "Winter Haven, FL",
     before: "/assets/gallery/before-6.jpg",
     after: "/assets/gallery/after-6.jpg",
   },
@@ -87,7 +81,6 @@ function GalleryCard({ item }: { item: (typeof galleryItems)[0] }) {
       <ReactCompareSlider
         style={{ width: "100%", height: "100%" }}
         itemOne={
-          // Before image — label baked in so it only shows on the before side
           <div className="relative w-full h-full">
             <ReactCompareSliderImage
               src={item.before}
@@ -106,7 +99,6 @@ function GalleryCard({ item }: { item: (typeof galleryItems)[0] }) {
           </div>
         }
         itemTwo={
-          // After image — label baked in so it only shows on the after side
           <div className="relative w-full h-full">
             <ReactCompareSliderImage
               src={item.after}
@@ -144,14 +136,7 @@ function GalleryCard({ item }: { item: (typeof galleryItems)[0] }) {
         }
       />
 
-      {/* Dark gradient at bottom for card info */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/90 to-transparent pointer-events-none" />
-
-      {/* Card info */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 pointer-events-none">
-        <div className="text-white font-semibold text-sm">{item.label}</div>
-        <div className="text-white/50 text-xs mt-0.5">{item.location}</div>
-      </div>
     </motion.div>
   );
 }
@@ -160,14 +145,10 @@ export default function Gallery() {
   return (
     <section
       id="gallery"
-      className="relative py-24 px-6 overflow-hidden"
-      style={{
-        backgroundImage: `url(/assets/stone-texture.jpg)`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative py-24 px-6 overflow-hidden bg-center bg-[length:600px] md:bg-cover"
+      style={{ backgroundImage: `url(/assets/cardboard-texture.jpg)` }}
     >
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/20" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <motion.div
