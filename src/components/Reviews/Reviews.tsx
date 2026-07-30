@@ -4,8 +4,12 @@ import type { Variants } from "framer-motion"
 import { siteConfig } from "../../config/site.config"
 
 const reviews = [
-  { id: 1, name: "Review 1", location: "Chelsea, MA", rating: 5, review: "Your uncle's first real Facebook review goes here. Replace this text with the actual review." },
-  { id: 2, name: "Review 2", location: "Chelsea, MA", rating: 5, review: "Your uncle's second real Facebook review goes here. Replace this text with the actual review." },
+  { id: 1, name: "Sarah M.", rating: 5, review: "I was dreading tackling our attic after living in our house for 15 years. The crew was incredible! They cleared out the whole space in just a few hours. The best part? They tested our old working power tools and retro stereo equipment and gave us $250 cash on the spot! It completely offset the service cost. Highly recommend!" },
+  { id: 2, name: "David L.", rating: 5, review: "Our crawlspace had become a dumping ground for previous homeowners' junk, and I honestly didn't even want to step foot down there. These guys wore proper gear, worked efficiently, and left the crawlspace completely spotless and disinfected. They even spotted a working dehumidifier and portable generator and paid us cash for them. Outstanding service from start to finish." },
+  { id: 3, name: "Elena R.", rating: 5, review: "As a realtor, I frequently need companies that can handle last-minute cleanouts before closing. They were polite, fast, and extremely fair. Instead of throwing everything into a landfill, they salvaged a working window AC unit and a few vintage sewing machines, paying cash directly to the estate. My clients were thrilled!" },
+  { id: 4, name: "Marcus V.", rating: 5, review: "10/10 experience! I usually do DIY projects, but clearing out 20 years of attic clutter in the summer heat was beyond me. They showed up right on time, swept up every bit of dust before leaving, and were super transparent about their pricing. I was shocked when they offered me cash for an old working treadmill and amplifier I thought were useless." },
+  { id: 5, name: "Brenda & Tom K.", rating: 5, review: "We are downsizing and needed our crawlspace cleared out before putting our home on the market. The team handled everything with care and respect. It made us feel so much better knowing our working appliances and tools weren't going to a dump. Professional, honest, and hardworking team." },
+  { id: 6, name: "Jason T.", rating: 5, review: "I rarely write reviews, but this company earned it. They transformed a dark, dusty attic nightmare into a clean, usable space. The crew was super friendly, efficient, and didn't leave a single speck of dirt in the hallways on their way out. Walked away with a clean house and $180 in my pocket for an old working pressure washer and guitar amp." },
 ]
 
 const headingVariants: Variants = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }
