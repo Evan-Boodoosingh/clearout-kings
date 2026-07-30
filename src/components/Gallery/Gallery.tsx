@@ -145,7 +145,7 @@ export default function Gallery() {
   return (
     <section
       id="gallery"
-      className="relative py-24 px-6 overflow-hidden bg-center bg-[length:600px] md:bg-cover"
+      className="relative py-24 px-6 overflow-hidden bg-center bg-[length:500px] md:bg-[length:800px]"
       style={{ backgroundImage: `url(/assets/cardboard-texture.jpg)` }}
     >
       <div className="absolute inset-0 bg-black/20" />
