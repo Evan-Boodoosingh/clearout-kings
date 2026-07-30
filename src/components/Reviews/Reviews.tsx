@@ -27,7 +27,7 @@ function ReviewCard({ review }: { review: typeof reviews[0] }) {
         <p className="text-white/80 text-sm leading-relaxed italic flex-1 overflow-hidden">"{review.review}"</p>
         <div className="pt-4 mt-auto" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
           <div className="text-white font-semibold text-sm">{review.name}</div>
-          <div className="text-white/40 text-xs mt-0.5">{review.location}</div>
+          {/* <div className="text-white/40 text-xs mt-0.5">{review.location}</div> */}
         </div>
       </div>
     </div>
