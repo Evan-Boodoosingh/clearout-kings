@@ -173,7 +173,7 @@ export default function Gallery() {
           </div>
           <h2
             className="font-serif font-bold text-white leading-tight"
-            style={{ fontSize: "clamp(32px, 5vw, 52px)" }}
+            style={{ fontSize: "clamp(32px, 5vw, 52px)",  }}
           >
             Before & After
           </h2>

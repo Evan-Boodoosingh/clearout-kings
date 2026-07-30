@@ -5,7 +5,7 @@ export const siteConfig = {
     email: "clearoutkings@gmail.com",
     address: "Chelsea, MA",
     hours: "Mon–Sun, 7am–7pm",
-    serviceAreas: ["Chelsea", "Somerville", "Revere", "Everett", "Malden"],
+    serviceAreas: ["Greater Boston Area"],
   },
   hero: {
     type: "image" as "video" | "image",
