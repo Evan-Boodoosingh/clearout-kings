@@ -2,7 +2,7 @@ export const siteConfig = {
   business: {
     name: "Clearout Kings",
     phone: "857-615-9906",
-    email: "clearoutkings@gmail.com",
+    email: "theclearoutkings@gmail.com",
     address: "Chelsea, MA",
     hours: "Mon–Sun, 7am–7pm",
     serviceAreas: ["Greater Boston Area"],
@@ -13,7 +13,7 @@ export const siteConfig = {
     headline: "We clear it out.",
     headlineAccent: "You get your space back.",
     subheading:
-      "Fast, careful attic, crawlspace, and basement cleanouts across greater Boston. We haul it all away and leave the space spotless.",
+      "Fast, careful attic and crawlspace cleanouts across greater Boston. We haul it all away and leave the space spotless.",
   },
   theme: {
     accentColor: "#C9A24C",
