@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="w-full"
+      className="relative w-full z-10"
       style={{
         background: "#0a0a0a",
         borderTop: "1px solid rgba(255,255,255,0.06)",
@@ -14,14 +14,14 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2">
-            <img src="/assets/crown.png" alt="" className="w-5 h-auto" />
+            {/* <img src="/assets/crown.png" alt="" className="w-5 h-auto" /> */}
             <span className="font-sans font-bold text-white text-sm uppercase tracking-widest">
               Clearout{" "}
               <span style={{ color: siteConfig.theme.accentColor }}>Kings</span>
             </span>
           </div>
           <p className="text-white/30 text-xs leading-relaxed max-w-[240px]">
-            Attic, crawlspace cleanouts across greater Boston.
+            Attic and crawlspace cleanouts across greater Boston.
             Licensed and insured.
           </p>
         </div>

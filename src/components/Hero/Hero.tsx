@@ -41,7 +41,7 @@ export default function Hero() {
           className="text-xs font-medium tracking-[.22em] uppercase mb-6"
           style={{ color: "#ecc86e" }}
         >
-          Attic · Crawlspace · Basement
+          {/* Attic · Crawlspace */}
         </motion.p>
 
         <motion.h1

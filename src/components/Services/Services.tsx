@@ -3,10 +3,10 @@ import type { Variants } from "framer-motion";
 import {
   Home,
   ArrowDownToLine,
-  Box,
-  Truck,
   Sparkles,
   DollarSign,
+  Truck,
+  SprayCan,
 } from "lucide-react";
 import { siteConfig } from "../../config/site.config";
 
@@ -27,24 +27,24 @@ const services = [
   },
   {
     id: 3,
-    icon: Box,
-    name: "Basement Cleanouts",
-    description:
-      "From old appliances to a decade of storage, we clear the entire basement and haul it all away in one visit.",
-  },
-  {
-    id: 4,
-    icon: Truck,
-    name: "Junk & Furniture Removal",
-    description:
-      "Bulky furniture, appliances, and general junk removed and disposed of responsibly, with no heavy lifting on your end.",
-  },
-  {
-    id: 5,
     icon: Sparkles,
     name: "Clean & Organize",
     description:
       "We don't just empty the space. We leave whatever stays neatly sorted and organized, so it's actually usable when we're done.",
+  },
+  {
+    id: 4,
+    icon: SprayCan,
+    name: "Deep Clean & Sanitize",
+    description:
+      "After the cleanout, we sweep, dust, and sanitize the entire space so it's not just empty, it's actually clean and ready to use.",
+  },
+  {
+    id: 5,
+    icon: Truck,
+    name: "Full Hauling & Disposal",
+    description:
+      "Everything we remove gets hauled away and disposed of responsibly. Nothing gets left in your driveway or on the curb. We take it all.",
   },
   {
     id: 6,
@@ -83,7 +83,10 @@ export default function Services() {
       >
         <h2
           className="font-sans font-bold text-white leading-tight"
-          style={{ fontSize: "clamp(32px, 5vw, 52px)",color: siteConfig.theme.accentColor}}
+          style={{
+            fontSize: "clamp(32px, 5vw, 52px)",
+            color: siteConfig.theme.accentColor,
+          }}
         >
           Our Services
         </h2>
